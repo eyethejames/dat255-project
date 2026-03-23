@@ -47,6 +47,7 @@ def train_val_test_split(X, y, train_ratio=0.7, val_ratio=0.15):
 
 X_train, y_train, X_val, y_val, X_test, y_test = train_val_test_split(X, y)
 
-print(len(X_train), len(y_train))
-print(len(X_val), len(y_val))
-print(len(X_test), len(y_test))
+if __name__ == "__main__":
+    print("Treningsdata: inputs X:", len(X_train), " Target y:", len(y_train))
+    print("Valideringsdata: inputs X:", len(X_val), " Target y:", len(y_val))
+    print("Testdata: inputs X:", len(X_test), " Target y:", len(y_test))

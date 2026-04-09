@@ -1,23 +1,24 @@
-import load_data  # importerer load_data for å få tilgang til subset og day_cols
-import preprocessing  # importerer preprocessing for å få tilgang til X_test og y_test
 import numpy as np
+import preprocessing
 
 
-y_pred = [x_window[-7:] for x_window in preprocessing.X_test]  # bruker de siste 7 dagene i input som prediksjon
-y_true = preprocessing.y_test
+def moving_window_baseline(X_windows, forecast_horizon=7):
+    """Bruker de siste observasjonene i input-vinduet som 7-dagers forecast."""
+    X_windows = np.asarray(X_windows, dtype=np.float32)
+    return X_windows[:, -forecast_horizon:]
 
-y_pred = np.array(y_pred)
-y_true = np.array(y_true)
 
-mae = np.mean(np.abs(y_pred - y_true))
+def mean_absolute_error(y_pred, y_true):
+    y_pred = np.asarray(y_pred, dtype=np.float32)
+    y_true = np.asarray(y_true, dtype=np.float32)
+    return float(np.mean(np.abs(y_pred - y_true)))
 
-if "__main__" == __name__:
-    print("Første prediksjon:", y_pred[0])
-    print("Første faktiske target:", y_true[0])
-    print("Mean Absolute Error (MAE):", mae)
 
-# Inventory simulation: Bruker y_pred og y_true til å regne ut total cost, stockout rate og fill rate
 def inventory_simulation(y_pred, y_true, holding_cost=1.0, stockout_cost=5.0):
+    """Regner ut enkle beslutningsmetrikker fra forecast og virkelig etterspørsel."""
+    y_pred = np.asarray(y_pred, dtype=np.float32)
+    y_true = np.asarray(y_true, dtype=np.float32)
+
     total_holding_cost = 0
     total_stockout_cost = 0
     total_demand = 0
@@ -39,45 +40,23 @@ def inventory_simulation(y_pred, y_true, holding_cost=1.0, stockout_cost=5.0):
                 total_stockout_cost += (true - pred) * stockout_cost
                 stockout_days += 1
 
-        total_cost = total_holding_cost + total_stockout_cost
-        stockout_rate = stockout_days / total_days
-        fill_rate = total_fulfilled / total_demand if total_demand > 0 else 0
+    total_cost = total_holding_cost + total_stockout_cost
+    stockout_rate = stockout_days / total_days if total_days > 0 else 0
+    fill_rate = total_fulfilled / total_demand if total_demand > 0 else 0
 
     return total_cost, stockout_rate, fill_rate
 
-total_cost, stockout_rate, fill_rate = inventory_simulation(y_pred, y_true)
 
-# skriv ut metrics med 3 desimaler
-if "__main__" == __name__:
+if __name__ == "__main__":
+    y_pred = moving_window_baseline(preprocessing.X_test, preprocessing.TARGET_WINDOW)
+    y_true = preprocessing.y_test
+    mae = mean_absolute_error(y_pred, y_true)
+
+    print("Første prediksjon:", y_pred[0])
+    print("Første faktiske target:", y_true[0])
+    print("Mean Absolute Error (MAE):", mae)
+
+    total_cost, stockout_rate, fill_rate = inventory_simulation(y_pred, y_true)
     print("Total Cost: {:.2f}".format(total_cost))
     print("Stockout Rate: {:.3f}".format(stockout_rate))
     print("Fill Rate: {:.3f}".format(fill_rate))
-
-# sanity check av første vindu
-first_pred = y_pred[:1]
-first_true = y_true[:1]
-
-total_cost, stockout_rate, fill_rate = inventory_simulation(first_pred, first_true)
-if "__main__" == __name__:
-    print("First window total cost: {:.2f}".format(total_cost))
-    print("First window stockout rate: {:.3f}".format(stockout_rate))
-    print("First window fill rate: {:.3f}".format(fill_rate))
-
-# sanity check av tilfeldig vindu
-idx = 67
-random_pred = y_pred[idx:idx+1]
-random_true = y_true[idx:idx+1]
-
-if "__main__" == __name__:
-    print("Tilfeldig prediksjon:", random_pred[0])
-    print("Tilfeldig faktiske target:", random_true[0])
-
-    mae_random = np.mean(np.abs(random_pred - random_true))
-
-total_cost, stockout_rate, fill_rate = inventory_simulation(random_pred, random_true)
-
-if "__main__" == __name__:
-    print("Mean Absolute Error (MAE):", mae_random)
-    print("Random window total cost: {:.2f}".format(total_cost))
-    print("Random window stockout rate: {:.3f}".format(stockout_rate))
-    print("Random window fill rate: {:.3f}".format(fill_rate))

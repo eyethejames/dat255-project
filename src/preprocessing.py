@@ -1,35 +1,40 @@
-import load_data  # importerer load_data for å få tilgang til subset og day_cols
+import numpy as np
+import load_data
 
-# filtrere salg for en spesifikk butikk og kategori
-subset = load_data.sales [
-    (load_data.sales["store_id"] == "CA_1") &
-    (load_data.sales["cat_id"] == "FOODS") & # redundant since dept_id is more specific, but just to be sure
-    (load_data.sales["dept_id"] == "FOODS_1")
-    ].copy()
+STORE_ID = "CA_1"
+CAT_ID = "FOODS"
+DEPT_ID = "FOODS_1"
+INPUT_WINDOW = 28
+TARGET_WINDOW = 7
 
-# henter ut dag-kolonnene
+# Filtrer salg for en spesifikk butikk og kategori.
+subset = load_data.sales[
+    (load_data.sales["store_id"] == STORE_ID)
+    & (load_data.sales["cat_id"] == CAT_ID)
+    & (load_data.sales["dept_id"] == DEPT_ID)
+].copy()
+
+# Hent ut alle dag-kolonner fra M5-datasettet.
 day_cols = [col for col in subset.columns if col.startswith("d_")]
 
-# sjekk en faktisk tidsserie
-sample_series = subset.iloc[0][day_cols].astype(int)  # og konverterer til int for enklere analyse
+# Milepæl 2 bygger videre på én tidsserie for å få treningspipen på plass.
+sample_series = subset.iloc[0][day_cols].to_numpy(dtype=np.float32)
 
-# etablerer sliding windows for å lage treningsdata
-def create_windows(series, input_window=28, target_window=7):
+def create_windows(series, input_window=INPUT_WINDOW, target_window=TARGET_WINDOW):
+    """Lager supervised læringsvinduer fra en tidsserie."""
+    series = np.asarray(series, dtype=np.float32)
     X, y = [], []
 
     for i in range(len(series) - input_window - target_window + 1):
-        x_window = (series[i:i+input_window].values)
-        y_window = (series[i+input_window:i+input_window+target_window].values)
-
+        x_window = series[i : i + input_window]
+        y_window = series[i + input_window : i + input_window + target_window]
         X.append(x_window)
         y.append(y_window)
 
-    return X, y
+    return np.asarray(X, dtype=np.float32), np.asarray(y, dtype=np.float32)
 
-X, y = create_windows(sample_series)
-
-## en enkel split funksjon
 def train_val_test_split(X, y, train_ratio=0.7, val_ratio=0.15):
+    """Splitter vinduene kronologisk i train/val/test."""
     n = len(X)
     train_end = int(n * train_ratio)
     val_end = int(n * (train_ratio + val_ratio))
@@ -45,9 +50,11 @@ def train_val_test_split(X, y, train_ratio=0.7, val_ratio=0.15):
 
     return X_train, y_train, X_val, y_val, X_test, y_test
 
+X, y = create_windows(sample_series)
 X_train, y_train, X_val, y_val, X_test, y_test = train_val_test_split(X, y)
 
 if __name__ == "__main__":
-    print("Treningsdata: inputs X:", len(X_train), " Target y:", len(y_train))
-    print("Valideringsdata: inputs X:", len(X_val), " Target y:", len(y_val))
-    print("Testdata: inputs X:", len(X_test), " Target y:", len(y_test))
+    print("X shape:", X.shape, "y shape:", y.shape)
+    print("Treningsdata:", X_train.shape, y_train.shape)
+    print("Valideringsdata:", X_val.shape, y_val.shape)
+    print("Testdata:", X_test.shape, y_test.shape)

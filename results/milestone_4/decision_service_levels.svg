@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
+<rect width="100%" height="100%" fill="white"/>
+<text x="550.0" y="35" font-size="24" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" fill="#111111">Service Levels by Policy</text>
+<text x="18" y="60" font-size="14" font-family="Arial, sans-serif" font-weight="normal" text-anchor="start" fill="#555555">Rate</text>
+<rect x="830" y="30" width="18" height="18" fill="#10B981" rx="3" ry="3"/>
+<text x="856" y="44" font-size="13" font-family="Arial, sans-serif" font-weight="normal" text-anchor="start" fill="#333333">fill_rate</text>
+<rect x="940" y="30" width="18" height="18" fill="#EF4444" rx="3" ry="3"/>
+<text x="966" y="44" font-size="13" font-family="Arial, sans-serif" font-weight="normal" text-anchor="start" fill="#333333">stockout_rate</text>
+<line x1="90" y1="490.0" x2="1050" y2="490.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="495.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.00</text>
+<line x1="90" y1="412.0" x2="1050" y2="412.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="417.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.20</text>
+<line x1="90" y1="334.0" x2="1050" y2="334.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="339.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.40</text>
+<line x1="90" y1="256.0" x2="1050" y2="256.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="261.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.60</text>
+<line x1="90" y1="178.0" x2="1050" y2="178.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="183.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.80</text>
+<line x1="90" y1="100.0" x2="1050" y2="100.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="105.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">1.00</text>
+<line x1="90" y1="100" x2="90" y2="490" stroke="#444444" stroke-width="2"/>
+<line x1="90" y1="490" x2="1050" y2="490" stroke="#444444" stroke-width="2"/>
+<rect x="116.88" y="365.0214538574219" width="60.8256" height="124.9785385131836" fill="#10B981" rx="4" ry="4"/>
+<text x="147.2928" y="357.0214538574219" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.320</text>
+<rect x="186.0" y="374.62006079027356" width="60.8256" height="115.37993920972646" fill="#EF4444" rx="4" ry="4"/>
+<text x="216.4128" y="366.62006079027356" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.296</text>
+<text x="186.0" y="514" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">baseline</text>
+<rect x="308.88" y="476.051513671875" width="60.8256" height="13.948497772216797" fill="#10B981" rx="4" ry="4"/>
+<text x="339.2928" y="468.051513671875" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.036</text>
+<rect x="378.0" y="328.58662613981767" width="60.8256" height="161.41337386018236" fill="#EF4444" rx="4" ry="4"/>
+<text x="408.4128" y="320.58662613981767" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.414</text>
+<text x="378.0" y="514" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">point_tcn</text>
+<rect x="500.88" y="490.0" width="60.8256" height="0.0" fill="#10B981" rx="4" ry="4"/>
+<text x="531.2927999999999" y="482.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.000</text>
+<rect x="570.0" y="323.4498480243161" width="60.8256" height="166.5501519756839" fill="#EF4444" rx="4" ry="4"/>
+<text x="600.4128" y="315.4498480243161" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.427</text>
+<text x="570.0" y="514" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">quantile_q0.1</text>
+<rect x="692.88" y="488.8841247558594" width="60.8256" height="1.1158798933029175" fill="#10B981" rx="4" ry="4"/>
+<text x="723.2927999999999" y="480.8841247558594" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.003</text>
+<rect x="762.0" y="323.6474164133739" width="60.8256" height="166.35258358662614" fill="#EF4444" rx="4" ry="4"/>
+<text x="792.4128" y="315.6474164133739" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.427</text>
+<text x="762.0" y="514" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">quantile_q0.5</text>
+<rect x="884.88" y="155.79400634765625" width="60.8256" height="334.20599365234375" fill="#10B981" rx="4" ry="4"/>
+<text x="915.2927999999999" y="147.79400634765625" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.857</text>
+<rect x="954.0" y="464.90881458966567" width="60.8256" height="25.091185410334347" fill="#EF4444" rx="4" ry="4"/>
+<text x="984.4128" y="456.90881458966567" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.064</text>
+<text x="954.0" y="514" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">quantile_q0.9</text>
+</svg>

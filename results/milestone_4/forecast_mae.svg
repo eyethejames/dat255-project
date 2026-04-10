@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<rect width="100%" height="100%" fill="white"/>
+<text x="480.0" y="35" font-size="24" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" fill="#111111">Forecast MAE (Raw)</text>
+<text x="18" y="60" font-size="14" font-family="Arial, sans-serif" font-weight="normal" text-anchor="start" fill="#555555">MAE</text>
+<line x1="90" y1="440.0" x2="920" y2="440.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="445.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.00</text>
+<line x1="90" y1="368.0" x2="920" y2="368.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="373.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.22</text>
+<line x1="90" y1="296.0" x2="920" y2="296.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="301.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.44</text>
+<line x1="90" y1="224.0" x2="920" y2="224.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="229.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.65</text>
+<line x1="90" y1="152.0" x2="920" y2="152.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="157.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.87</text>
+<line x1="90" y1="80.0" x2="920" y2="80.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="85.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">1.09</text>
+<line x1="90" y1="80" x2="90" y2="440" stroke="#444444" stroke-width="2"/>
+<line x1="90" y1="440" x2="920" y2="440" stroke="#444444" stroke-width="2"/>
+<rect x="145.33333333333334" y="126.95652173913038" width="166.0" height="313.0434782608696" fill="#3B82F6" rx="4" ry="4"/>
+<text x="228.33333333333334" y="118.95652173913038" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.9488</text>
+<text x="228.33333333333334" y="464" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">baseline</text>
+<rect x="422.0" y="196.9663715323041" width="166.0" height="243.0336284676959" fill="#3B82F6" rx="4" ry="4"/>
+<text x="505.0" y="188.9663715323041" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.7366</text>
+<text x="505.0" y="464" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">point_tcn</text>
+<rect x="698.6666666666667" y="200.02144862499674" width="166.0" height="239.97855137500326" fill="#3B82F6" rx="4" ry="4"/>
+<text x="781.6666666666667" y="192.02144862499674" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.7274</text>
+<text x="781.6666666666667" y="464" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">quantile_median</text>
+</svg>

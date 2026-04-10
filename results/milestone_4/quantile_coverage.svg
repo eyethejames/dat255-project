@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
+<rect width="100%" height="100%" fill="white"/>
+<text x="550.0" y="35" font-size="24" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" fill="#111111">Quantile Coverage vs Target</text>
+<text x="18" y="60" font-size="14" font-family="Arial, sans-serif" font-weight="normal" text-anchor="start" fill="#555555">Coverage</text>
+<rect x="830" y="30" width="18" height="18" fill="#9CA3AF" rx="3" ry="3"/>
+<text x="856" y="44" font-size="13" font-family="Arial, sans-serif" font-weight="normal" text-anchor="start" fill="#333333">target</text>
+<rect x="940" y="30" width="18" height="18" fill="#8B5CF6" rx="3" ry="3"/>
+<text x="966" y="44" font-size="13" font-family="Arial, sans-serif" font-weight="normal" text-anchor="start" fill="#333333">empirical</text>
+<line x1="90" y1="490.0" x2="1050" y2="490.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="495.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.00</text>
+<line x1="90" y1="412.0" x2="1050" y2="412.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="417.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.20</text>
+<line x1="90" y1="334.0" x2="1050" y2="334.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="339.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.40</text>
+<line x1="90" y1="256.0" x2="1050" y2="256.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="261.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.60</text>
+<line x1="90" y1="178.0" x2="1050" y2="178.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="183.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">0.80</text>
+<line x1="90" y1="100.0" x2="1050" y2="100.0" stroke="#DDDDDD" stroke-width="1"/>
+<text x="78" y="105.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#666666">1.00</text>
+<line x1="90" y1="100" x2="90" y2="490" stroke="#444444" stroke-width="2"/>
+<line x1="90" y1="490" x2="1050" y2="490" stroke="#444444" stroke-width="2"/>
+<rect x="134.8" y="451.0" width="101.37599999999999" height="39.0" fill="#9CA3AF" rx="4" ry="4"/>
+<text x="185.488" y="443.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.100</text>
+<rect x="250.0" y="458.1914893617021" width="101.37599999999999" height="31.808510638297875" fill="#8B5CF6" rx="4" ry="4"/>
+<text x="300.688" y="450.1914893617021" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.082</text>
+<text x="250.0" y="514" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">q=0.1</text>
+<rect x="454.8" y="295.0" width="101.37599999999999" height="195.0" fill="#9CA3AF" rx="4" ry="4"/>
+<text x="505.488" y="287.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.500</text>
+<rect x="570.0" y="291.838905775076" width="101.37599999999999" height="198.161094224924" fill="#8B5CF6" rx="4" ry="4"/>
+<text x="620.688" y="283.838905775076" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.508</text>
+<text x="570.0" y="514" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">q=0.5</text>
+<rect x="774.8" y="139.0" width="101.37599999999999" height="351.0" fill="#9CA3AF" rx="4" ry="4"/>
+<text x="825.4879999999999" y="131.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.900</text>
+<rect x="890.0" y="147.02127659574467" width="101.37599999999999" height="342.97872340425533" fill="#8B5CF6" rx="4" ry="4"/>
+<text x="940.688" y="139.02127659574467" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">0.879</text>
+<text x="890.0" y="514" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#333333">q=0.9</text>
+</svg>

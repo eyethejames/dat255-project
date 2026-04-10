@@ -61,6 +61,7 @@ def predict(model, data_loader, device):
 
 def train_model(model, train_loader, val_loader, loss_fn, optimizer, device, epochs=EPOCHS):
     best_val_loss = float("inf")
+    best_epoch = 0
     best_state = deepcopy(model.state_dict())
     history = []
 
@@ -86,16 +87,15 @@ def train_model(model, train_loader, val_loader, loss_fn, optimizer, device, epo
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
+            best_epoch = epoch
             best_state = deepcopy(model.state_dict())
 
-        if epoch == 1 or epoch % 10 == 0:
-            print(
-                f"Epoch {epoch:>2}/{epochs} | "
-                f"train_loss={train_loss:.4f} | val_loss={val_loss:.4f}"
-            )
+        print("Epoch {epoch} | train_loss={train_loss:.4f} | val_loss={val_loss:.4f}".format(
+            epoch=epoch, train_loss=train_loss, val_loss=val_loss
+        ))
 
     model.load_state_dict(best_state)
-    return history, best_val_loss
+    return history, best_val_loss, best_epoch
 
 
 def main():
@@ -129,7 +129,7 @@ def main():
     loss_fn = nn.L1Loss()
     optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
-    _, best_val_loss = train_model(
+    _, best_val_loss, best_epoch = train_model(
         model=model,
         train_loader=train_loader,
         val_loader=val_loader,
@@ -153,7 +153,11 @@ def main():
     baseline_inventory = inventory_simulation(baseline_predictions, test_targets)
     model_inventory = inventory_simulation(rounded_test_predictions, test_targets)
 
-    print("\nBeste val-loss:", f"{best_val_loss:.4f}")
+    print(
+        f"\nTestresultat fra beste valideringsmodell "
+        f"(epoch {best_epoch}/{EPOCHS})."
+    )
+    print("Beste val-loss:", f"{best_val_loss:.4f}")
     print("TCN test MAE (rå):", f"{raw_test_mae:.4f}")
     print("TCN test MAE (avrundet):", f"{rounded_test_mae:.4f}")
     print("Baseline test MAE:", f"{baseline_mae:.4f}")

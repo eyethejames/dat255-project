@@ -52,9 +52,10 @@ if __name__ == "__main__":
     y_true = preprocessing.y_test
     mae = mean_absolute_error(y_pred, y_true)
 
+    # Prediksjon og target, og MAE med tre desimaler
     print("Første prediksjon:", y_pred[0])
     print("Første faktiske target:", y_true[0])
-    print("Mean Absolute Error (MAE):", mae)
+    print("Mean Absolute Error (MAE):", f"{mae:.3f}")
 
     total_cost, stockout_rate, fill_rate = inventory_simulation(y_pred, y_true)
     print("Total Cost: {:.2f}".format(total_cost))

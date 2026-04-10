@@ -158,7 +158,7 @@ Planned work:
 - evaluate on validation/test data
 - compare against baseline MAE
 
-Status: **In progress**
+Status: **Completed**
 
 ---
 
@@ -172,7 +172,7 @@ Planned work:
 - evaluate coverage
 - connect quantile forecasts to inventory decisions
 
-Status: **Planned**
+Status: **In progress**
 
 ---
 

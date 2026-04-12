@@ -1,0 +1,7 @@
+Milepæl 5A timing summary
+run_started_at: 2026-04-11 01:33:35
+device: cpu
+baseline_eval: 0s
+point_tcn: 3m 44s | best_epoch=2 | best_val_loss=1.2093 | early stopped at epoch 12
+quantile_tcn: 5m 40s | best_epoch=8 | best_val_loss=0.3908 | early stopped at epoch 18
+total_runtime: 9m 25s

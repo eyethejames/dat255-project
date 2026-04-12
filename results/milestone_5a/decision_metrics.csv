@@ -1,0 +1,6 @@
+policy,family,quantile,policy_style,total_cost,stockout_rate,fill_rate
+baseline,baseline,,reference,1613796.0,0.28191856452726016,0.49671322
+point_tcn,point,,point forecast,1589364.0,0.3253837547315808,0.44528052
+quantile_q0.1,quantile,0.1,aggressiv,2535697.0,0.4640556705774097,0.04917024
+quantile_q0.5,quantile,0.5,balansert,1550395.0,0.31756226864922515,0.46354723
+quantile_q0.9,quantile,0.9,konservativ,1140477.0,0.06461875483614614,0.8876307

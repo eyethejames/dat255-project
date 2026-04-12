@@ -1,0 +1,26 @@
+Milepæl 5A hovedfunn
+
+1. Slår point TCN baseline på forecast metrics? 
+Ja. Point TCN oppnår MAE raw 1.0788 mot baseline 1.4135.
+
+2. Slår point TCN baseline på decision metrics? 
+Delvis. Point TCN gir total cost 1589364.00 mot baseline 1613796.00, stockout rate 0.325 mot 0.282, 
+og fill rate 0.445 mot 0.497.
+
+3. Hvordan skiller q=0.1, q=0.5 og q=0.9 seg? 
+q=0.1 og q=0.5 er mer aggressive og prioriterer lavere ordrevolum, mens q=0.9 er mer konservativ 
+og reduserer stockouts kraftig.
+
+4. Hvilken kvantil fungerte best for inventory? 
+q=0.9, med total cost 1140477.00, stockout rate 0.065 og fill rate 0.888.
+
+5. Hva sier dette om trade-off mellom holding cost og stockout cost? 
+Under disse cost assumptions ser reduksjonen i stockouts ut til å være mer verdifull enn den 
+ekstra beholdningen som en konservativ policy krever.
+
+6. Hva sier dette om forskjellen mellom forecast quality og decision quality? 
+Beste forecast-MAE gir ikke automatisk beste lagerbeslutning. Point TCN kan være bedre på 
+forecast-feil uten å være bedre på decision metrics, mens quantile q=0.9 kan gi bedre beslutningsytelse.
+
+Fra point forecast til beste quantile-policy endres total cost med -448887.00, stockout rate 
+med -0.261 og fill rate med 0.442.

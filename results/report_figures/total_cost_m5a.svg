@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="100%" height="100%" fill="white"/>
+<text x="600.0" y="38" font-size="24" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" fill="#111827">Total cost by policy: Milestone 5A</text>
+<text x="600.0" y="65" font-size="14" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#4B5563">Total cost values for baseline, point TCN and quantile policies</text>
+<text x="22" y="92" font-size="14" font-family="Arial, sans-serif" font-weight="normal" text-anchor="start" fill="#4B5563">Total cost</text>
+<line x1="90" y1="560.0" x2="1140" y2="560.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="78" y="565.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.00</text>
+<line x1="90" y1="471.0" x2="1140" y2="471.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="78" y="476.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">583210.31</text>
+<line x1="90" y1="382.0" x2="1140" y2="382.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="78" y="387.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">1166420.62</text>
+<line x1="90" y1="293.0" x2="1140" y2="293.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="78" y="298.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">1749630.93</text>
+<line x1="90" y1="204.00000000000006" x2="1140" y2="204.00000000000006" stroke="#E5E7EB" stroke-width="1"/>
+<text x="78" y="209.00000000000006" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">2332841.24</text>
+<line x1="90" y1="115.0" x2="1140" y2="115.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="78" y="120.0" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">2916051.55</text>
+<line x1="90" y1="115" x2="90" y2="560" stroke="#374151" stroke-width="2"/>
+<line x1="90" y1="560" x2="1140" y2="560" stroke="#374151" stroke-width="2"/>
+<rect x="117.3" y="313.7289009859925" width="127.428" height="246.27109901400752" fill="#F97316" rx="4" ry="4"/>
+<text x="181.014" y="305.7289009859925" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">1613796</text>
+<text x="195.0" y="584" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Baseline</text>
+<rect x="327.3" y="317.4573124401727" width="127.428" height="242.54268755982727" fill="#F97316" rx="4" ry="4"/>
+<text x="391.014" y="309.4573124401727" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">1589364</text>
+<text x="405.0" y="584" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Point TCN</text>
+<rect x="537.3" y="173.0434782608695" width="127.428" height="386.9565217391305" fill="#F97316" rx="4" ry="4"/>
+<text x="601.0139999999999" y="165.0434782608695" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">2535697</text>
+<text x="615.0" y="584" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Quantile q=0.1</text>
+<rect x="747.3" y="323.4041226054457" width="127.428" height="236.5958773945543" fill="#F97316" rx="4" ry="4"/>
+<text x="811.0139999999999" y="315.4041226054457" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">1550395</text>
+<text x="825.0" y="584" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Quantile q=0.5</text>
+<rect x="957.3" y="385.95909012651026" width="127.428" height="174.04090987348974" fill="#F97316" rx="4" ry="4"/>
+<text x="1021.0139999999999" y="377.95909012651026" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">1140477</text>
+<text x="1035.0" y="584" font-size="12" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Quantile q=0.9</text>
+</svg>

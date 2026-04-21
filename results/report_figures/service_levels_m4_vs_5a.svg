@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="790" viewBox="0 0 1400 790">
+<rect width="100%" height="100%" fill="white"/>
+<text x="700.0" y="38" font-size="24" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" fill="#111827">Service level: Milestone 4 vs 5A</text>
+<text x="700.0" y="65" font-size="14" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#4B5563">Fill rate and stockout rate comparison for same policy-set</text>
+<rect x="48" y="120" width="634.0" height="500" fill="none" stroke="#D1D5DB" stroke-width="1.5" rx="8" ry="8"/>
+<text x="365.0" y="150" font-size="18" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" fill="#111827">Fill rate</text>
+<line x1="110" y1="548.0" x2="654.0" y2="548.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="100" y="553.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.00</text>
+<line x1="110" y1="474.0" x2="654.0" y2="474.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="100" y="479.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.20</text>
+<line x1="110" y1="400.0" x2="654.0" y2="400.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="100" y="405.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.40</text>
+<line x1="110" y1="326.0" x2="654.0" y2="326.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="100" y="331.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.60</text>
+<line x1="110" y1="252.0" x2="654.0" y2="252.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="100" y="257.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.80</text>
+<line x1="110" y1="178.0" x2="654.0" y2="178.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="100" y="183.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">1.00</text>
+<line x1="110" y1="178" x2="110" y2="548" stroke="#374151" stroke-width="2"/>
+<line x1="110" y1="548" x2="654.0" y2="548" stroke="#374151" stroke-width="2"/>
+<rect x="124.144" y="429.430614" width="33.00992" height="118.56938600000001" fill="#1D4ED8" rx="4" ry="4"/>
+<text x="140.64896000000002" y="421.430614" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.320</text>
+<rect x="164.4" y="364.2161086" width="33.00992" height="183.78389140000002" fill="#F97316" rx="4" ry="4"/>
+<text x="180.90496000000002" y="356.2161086" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.497</text>
+<text x="164.4" y="570" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Baseline</text>
+<rect x="232.94400000000002" y="534.7668094" width="33.00992" height="13.2331906" fill="#1D4ED8" rx="4" ry="4"/>
+<text x="249.44896000000003" y="526.7668094" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.036</text>
+<rect x="273.20000000000005" y="383.2462076" width="33.00992" height="164.7537924" fill="#F97316" rx="4" ry="4"/>
+<text x="289.70496" y="375.2462076" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.445</text>
+<text x="273.20000000000005" y="570" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Point TCN</text>
+<rect x="341.744" y="548.0" width="33.00992" height="0.0" fill="#1D4ED8" rx="4" ry="4"/>
+<text x="358.24896" y="540.0" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.000</text>
+<rect x="382.0" y="529.8070112" width="33.00992" height="18.1929888" fill="#F97316" rx="4" ry="4"/>
+<text x="398.50496" y="521.8070112" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.049</text>
+<text x="382.0" y="570" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Quantile q=0.1</text>
+<rect x="450.544" y="546.941344752" width="33.00992" height="1.058655248" fill="#1D4ED8" rx="4" ry="4"/>
+<text x="467.04895999999997" y="538.941344752" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.003</text>
+<rect x="490.79999999999995" y="376.48752490000004" width="33.00992" height="171.5124751" fill="#F97316" rx="4" ry="4"/>
+<text x="507.30495999999994" y="368.48752490000004" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.464</text>
+<text x="490.79999999999995" y="570" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Quantile q=0.5</text>
+<rect x="559.344" y="230.932755" width="33.00992" height="317.067245" fill="#1D4ED8" rx="4" ry="4"/>
+<text x="575.84896" y="222.932755" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.857</text>
+<rect x="599.6" y="219.576641" width="33.00992" height="328.423359" fill="#F97316" rx="4" ry="4"/>
+<text x="616.10496" y="211.576641" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.888</text>
+<text x="599.6" y="570" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Quantile q=0.9</text>
+<rect x="718.0" y="120" width="634.0" height="500" fill="none" stroke="#D1D5DB" stroke-width="1.5" rx="8" ry="8"/>
+<text x="1035.0" y="150" font-size="18" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" fill="#111827">Stockout rate</text>
+<line x1="780.0" y1="548.0" x2="1324.0" y2="548.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="770.0" y="553.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.00</text>
+<line x1="780.0" y1="474.0" x2="1324.0" y2="474.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="770.0" y="479.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.10</text>
+<line x1="780.0" y1="400.0" x2="1324.0" y2="400.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="770.0" y="405.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.20</text>
+<line x1="780.0" y1="326.0" x2="1324.0" y2="326.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="770.0" y="331.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.30</text>
+<line x1="780.0" y1="252.0" x2="1324.0" y2="252.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="770.0" y="257.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.40</text>
+<line x1="780.0" y1="178.0" x2="1324.0" y2="178.0" stroke="#E5E7EB" stroke-width="1"/>
+<text x="770.0" y="183.0" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="end" fill="#6B7280">0.50</text>
+<line x1="780.0" y1="178" x2="780.0" y2="548" stroke="#374151" stroke-width="2"/>
+<line x1="780.0" y1="548" x2="1324.0" y2="548" stroke="#374151" stroke-width="2"/>
+<rect x="794.144" y="329.0739614994934" width="33.00992" height="218.9260385005066" fill="#1D4ED8" rx="4" ry="4"/>
+<text x="810.64896" y="321.0739614994934" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.296</text>
+<rect x="834.4" y="339.38026224982747" width="33.00992" height="208.61973775017253" fill="#F97316" rx="4" ry="4"/>
+<text x="850.90496" y="331.38026224982747" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.282</text>
+<text x="834.4" y="570" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Baseline</text>
+<rect x="902.944" y="241.72847011144887" width="33.00992" height="306.27152988855113" fill="#1D4ED8" rx="4" ry="4"/>
+<text x="919.4489599999999" y="233.72847011144887" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.414</text>
+<rect x="943.1999999999999" y="307.2160214986302" width="33.00992" height="240.7839785013698" fill="#F97316" rx="4" ry="4"/>
+<text x="959.7049599999999" y="299.2160214986302" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.325</text>
+<text x="943.1999999999999" y="570" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Point TCN</text>
+<rect x="1011.744" y="231.9817629179331" width="33.00992" height="316.0182370820669" fill="#1D4ED8" rx="4" ry="4"/>
+<text x="1028.2489600000001" y="223.9817629179331" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.427</text>
+<rect x="1052.0" y="204.5988037727168" width="33.00992" height="343.4011962272832" fill="#F97316" rx="4" ry="4"/>
+<text x="1068.50496" y="196.5988037727168" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.464</text>
+<text x="1052.0" y="570" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Quantile q=0.1</text>
+<rect x="1120.544" y="232.35663627152985" width="33.00992" height="315.64336372847015" fill="#1D4ED8" rx="4" ry="4"/>
+<text x="1137.04896" y="224.35663627152985" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.427</text>
+<rect x="1160.8000000000002" y="313.00392119957337" width="33.00992" height="234.9960788004266" fill="#F97316" rx="4" ry="4"/>
+<text x="1177.3049600000002" y="305.00392119957337" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.318</text>
+<text x="1160.8000000000002" y="570" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Quantile q=0.5</text>
+<rect x="1229.344" y="500.39108409321176" width="33.00992" height="47.60891590678825" fill="#1D4ED8" rx="4" ry="4"/>
+<text x="1245.84896" y="492.39108409321176" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.064</text>
+<rect x="1269.6000000000001" y="500.18212142125185" width="33.00992" height="47.81787857874814" fill="#F97316" rx="4" ry="4"/>
+<text x="1286.1049600000001" y="492.18212142125185" font-size="10" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#1F2937">0.065</text>
+<text x="1269.6000000000001" y="570" font-size="11" font-family="Arial, sans-serif" font-weight="normal" text-anchor="middle" fill="#374151">Quantile q=0.9</text>
+<rect x="525.0" y="694" width="18" height="18" fill="#1D4ED8" rx="3" ry="3"/>
+<text x="551.0" y="708" font-size="13" font-family="Arial, sans-serif" font-weight="normal" text-anchor="start" fill="#374151">Milestone 4</text>
+<rect x="735.0" y="694" width="18" height="18" fill="#F97316" rx="3" ry="3"/>
+<text x="761.0" y="708" font-size="13" font-family="Arial, sans-serif" font-weight="normal" text-anchor="start" fill="#374151">Milestone 5A</text>
+</svg>

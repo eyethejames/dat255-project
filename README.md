@@ -13,6 +13,10 @@ actual future demand.
 The webapp is built as a Next.js application with a Python/PyTorch inference
 runtime behind the API routes.
 
+Live deployment:
+
+- https://demand-forecast-demo-project.onrender.com/
+
 Main views:
 
 - `/` - interactive model demo

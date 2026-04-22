@@ -1,226 +1,226 @@
-# DAT255 Project — Uncertainty-Aware Demand Forecasting for Inventory Restocking
+# DAT255 Project: Demand Forecasting for Inventory Restocking
 
-## Overview
+This project was built for DAT255 Deep Learning Engineering. It demonstrates an
+end-to-end machine learning pipeline for retail demand forecasting and inventory
+restocking decisions.
 
-This project is part of the course **DAT255 Deep Learning Engineering**.  
-The goal is to build an end-to-end deep learning pipeline for **retail demand forecasting** and connect the forecasts to **inventory restocking decisions**.
+The core idea is simple: use recent product demand to forecast the next 7 days,
+then evaluate how different restocking policies would have performed against the
+actual future demand.
 
-Instead of only predicting future demand, we want to investigate whether **uncertainty-aware forecasts** can improve downstream business decisions such as stock replenishment.
+## Live Demo
 
-The project is based on the **M5 Forecasting dataset (Walmart sales)** and is currently scoped to **one store and one product department** in order to get the full pipeline working before scaling up.
+The webapp is built as a Next.js application with a Python/PyTorch inference
+runtime behind the API routes.
 
----
+Main views:
 
-## Project Goal
+- `/` - interactive model demo
+- `/explain` - plain-language guide for non-specialists
+- `/api/series` - available product/store demand series
+- `/api/infer?series_id=FOODS_1_001_CA_1` - run inference for one series
 
-We want to answer the following question:
+## What The Demo Shows
 
-> Can uncertainty-aware demand forecasts reduce inventory cost and improve service level compared to simpler baseline policies?
+The app lets a user:
 
-More concretely, the project combines:
-
-- **Time series forecasting**
-- **Deep learning models**
-- **Inventory simulation**
-- **Decision evaluation**
-
-This makes the project more than a standard forecasting task:  
-the forecasts are used to drive actual **restocking policies**, which are then evaluated with decision-oriented metrics.
-
----
+- Select one product demand series
+- Run real TCN model inference
+- Inspect point forecasts and quantile forecasts
+- Visualize historical demand, actual future demand and model predictions
+- Compare inventory policies using decision-oriented metrics
+- Read a plain-language explanation of key terms such as time series, stockout
+  rate, fill rate and total cost
 
 ## Dataset
 
-We use the **M5 Forecasting - Accuracy** dataset from Kaggle:
+The project uses the M5 Forecasting Accuracy dataset.
 
-- https://www.kaggle.com/competitions/m5-forecasting-accuracy
+Current deployment subset:
 
-For the first implementation phase we are working with:
+- Store: `CA_1`
+- Category: `FOODS`
+- Department: `FOODS_1`
+- Number of series: 216
+- Series length: 1913 daily demand values
 
-- **Store:** `CA_1`
-- **Category:** `FOODS`
-- **Department:** `FOODS_1`
+In this project, one `series` means one product in one store. For example:
 
-This subset currently contains:
+```text
+FOODS_1_001_CA_1
+```
 
-- **216 product series**
-- daily sales history from the M5 dataset
+means product `FOODS_1_001` in store `CA_1`.
 
----
+## Model Pipeline
 
-## Current Pipeline
+The final pipeline uses:
 
-The project pipeline is structured as follows:
+- Input window: 28 days of observed demand
+- Forecast horizon: 7 days
+- Point forecast TCN
+- Quantile forecast TCN with quantiles `0.1`, `0.5` and `0.9`
+- Inventory simulation with simplified costs
 
-1. **Preprocess data**
-2. **Create supervised windows**
-   - input window: 28 days
-   - forecast horizon: 7 days
-3. **Train forecasting model**
-4. **Generate forecasts**
-5. **Run inventory simulation**
-6. **Compare policies**
-7. **Evaluate both forecast quality and decision quality**
+The quantile model is uncertainty-aware. Instead of only predicting one future
+demand value, it predicts low, median and high demand scenarios.
 
----
+## Decision Metrics
 
-## Input Features
+Forecasts are evaluated not only by forecast quality, but also by how useful
+they are for inventory decisions.
 
-The initial model uses the following inputs:
+Included policy metrics:
 
-- last **28 days of historical sales**
-- simple calendar information (to be expanded later)
-- item identifier
+- Total cost: simulated holding penalty plus stockout penalty
+- Stockout rate: share of days where inventory was too low
+- Fill rate: share of demand that was fulfilled
 
-Current project settings:
+Current demo cost assumptions:
 
-- **Input window:** 28 days
-- **Forecast horizon:** 7 days
-- **Lead time:** 7 days
+- Holding cost: `1`
+- Stockout cost: `5`
 
----
+This means missed demand is penalized more heavily than leftover inventory.
 
-## Models
-
-### Baselines
-We start with simple baselines to establish a reference point:
-
-1. **Point forecast baseline**
-2. **Fixed safety stock baseline**
-
-### Main model
-The main deep learning model will be a:
-
-- **Temporal Convolutional Network (TCN)**
-
-We start with a **point forecast TCN**, and then extend it to **quantile forecasting**.
-
-### Uncertainty-aware extension
-Later in the project, the TCN will be modified to predict quantiles:
-
-- 0.1
-- 0.5
-- 0.9
-
-This will allow us to model uncertainty and connect it directly to inventory policies.
-
----
-
-## Evaluation Metrics
-
-### Forecast metrics
-We currently plan to use:
-
-- **MAE** (Mean Absolute Error)
-- **Pinball Loss**
-- **Coverage**
-
-### Decision metrics
-To evaluate the actual business usefulness of the forecasts, we also use:
-
-- **Total Cost**
-  - holding cost
-  - stockout cost
-  - order cost
-- **Stockout Rate**
-- **Fill Rate**
-
----
-
-## Milestones
-
-### Milestone 1 — Baseline pipeline
-Goal:
-- get the full end-to-end pipeline working without deep learning
-
-Completed work:
-- data loading
-- subset filtering
-- sliding windows
-- train/validation/test split
-- baseline forecasts
-- MAE
-- inventory simulation
-- decision metrics
-
-Status: **Completed**
-
----
-
-### Milestone 2 — Point forecast with TCN
-Goal:
-- implement and train a first deep learning model that predicts 7 days ahead from 28 days of history
-
-Planned work:
-- convert training data to PyTorch tensors
-- implement TCN in PyTorch
-- train the model
-- evaluate on validation/test data
-- compare against baseline MAE
-
-Status: **In progress**
-
----
-
-### Milestone 3 — Quantile forecasting with TCN
-Goal:
-- extend the TCN from point forecasting to uncertainty-aware forecasting
-
-Planned work:
-- output quantiles (0.1, 0.5, 0.9)
-- use pinball loss
-- evaluate coverage
-- connect quantile forecasts to inventory decisions
-
-Status: **Planned**
-
----
-
-### Milestone 4 — Policy comparison and analysis
-Goal:
-- compare baseline policies and uncertainty-aware policies
-
-Planned work:
-- compare cost, stockouts and fill rate
-- analyze when uncertainty-aware forecasting helps most
-- reflect on limitations and assumptions
-
-Status: **Planned**
-
----
-
-### Milestone 5 — Deployment / demo
-Goal:
-- expose the trained model and decision pipeline in a simple interactive interface
-
-Possible features:
-- choose product / series
-- generate forecast
-- visualize forecast interval
-- recommend restocking quantity
-- compare policies
-
-Status: **Planned**
-
----
-
-## Current Repository Structure
+## Repository Structure
 
 ```text
 project/
-│
+├── Dockerfile
+├── requirements-deploy.txt
 ├── data/
-│   ├── raw/
 │   └── processed/
-│
+│       └── webapp_models/
+│           ├── point_tcn_5a.pt
+│           └── quantile_tcn_5a.pt
 ├── src/
-│   ├── load_data.py
-│   ├── preprocessing.py
-│   ├── baselines.py
+│   ├── compare_policies_5a.py
+│   ├── export_webapp_series.py
+│   ├── preprocessing_5a.py
 │   ├── train.py
+│   ├── train_quantile.py
+│   ├── webapp_inference_runtime.py
 │   └── models/
 │       └── tcn.py
-│
-├── results/
-├── configs/
-└── README.md
+├── webapp/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── explain/
+│   │   ├── page.tsx
+│   │   └── globals.css
+│   ├── data/
+│   │   └── ca_1_foods_1_validation_series.json
+│   ├── lib/
+│   └── package.json
+└── results/
+```
+
+## Local Development
+
+Install webapp dependencies:
+
+```bash
+npm install --prefix webapp
+```
+
+Run the development server:
+
+```bash
+npm run dev --prefix webapp
+```
+
+If port `3000` is busy:
+
+```bash
+npm run dev --prefix webapp -- -p 3001
+```
+
+Open:
+
+```text
+http://localhost:3000
+http://localhost:3000/explain
+http://localhost:3000/api/series
+```
+
+## Docker
+
+Build the deployment image:
+
+```bash
+docker build -t dat255-webapp .
+```
+
+Run locally:
+
+```bash
+docker run --rm -p 3000:3000 dat255-webapp
+```
+
+Test:
+
+```text
+http://localhost:3000/
+http://localhost:3000/explain
+http://localhost:3000/api/series
+http://localhost:3000/api/infer?series_id=FOODS_1_001_CA_1
+```
+
+If port `3000` is already allocated, either stop the old container or map the
+container to another local port:
+
+```bash
+docker run --rm -p 3001:3000 dat255-webapp
+```
+
+Then open `http://localhost:3001`.
+
+## Deployment
+
+The app is deployed as a Docker-based web service. This is necessary because the
+Next.js API route calls Python/PyTorch inference.
+
+Important deployment files:
+
+- `Dockerfile`
+- `.dockerignore`
+- `requirements-deploy.txt`
+- `src/webapp_inference_runtime.py`
+- `data/processed/webapp_models/*.pt`
+
+The model checkpoint files are intentionally included in deployment even though
+the rest of `data/processed` is ignored.
+
+## Render Notes
+
+If Render deploys but the UI does not show the newest changes, check:
+
+1. Render is connected to the same branch you pushed.
+2. The latest Render deploy shows the expected commit SHA.
+3. Auto deploy is enabled, or a manual deploy was triggered after the push.
+4. The browser is not showing a cached page.
+
+In this repository, the latest deployment work is on:
+
+```text
+milestone-5B
+```
+
+If Render is tracking `main`, it will deploy an older version unless `main` is
+updated or the Render service branch is changed.
+
+## Project Status
+
+Completed:
+
+- Baseline forecasting and inventory simulation
+- Point forecast TCN
+- Quantile TCN with pinball loss
+- Policy comparison on stricter 5A dataset
+- Interactive webapp demo
+- Plain-language explanation view
+- Docker deployment setup
+
+The project is intended as both a DAT255 final project artifact and a portfolio
+demo of applied machine learning for retail decision support.

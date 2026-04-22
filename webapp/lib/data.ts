@@ -52,7 +52,14 @@ export async function listSeries(): Promise<SeriesOption[]> {
 
     return payload.series.map((series) => ({
         series_id: series.series_id,
-        label: `${series.item_id} · ${series.series_id}`,
+        label: `Product ${series.item_id.split("_").at(-1) ?? series.item_id}`,
+        description: `${series.cat_id} category, ${series.dept_id} department, ${series.state_id} state. Daily demand history with ${series.values.length} days.`,
+        item_id: series.item_id,
+        store_id: series.store_id,
+        state_id: series.state_id,
+        dept_id: series.dept_id,
+        cat_id: series.cat_id,
+        num_days: series.values.length,
     }));
 }
 

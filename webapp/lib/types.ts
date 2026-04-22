@@ -1,6 +1,13 @@
 export type SeriesOption = {
     series_id: string;
     label: string;
+    description: string;
+    item_id: string;
+    store_id: string;
+    state_id: string;
+    dept_id: string;
+    cat_id: string;
+    num_days: number;
 };
 
 export type PolicyResult = {

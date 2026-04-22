@@ -610,14 +610,19 @@ export default function HomePage() {
             <section className="hero-card">
                 <div className="hero-meta">
                     <div className="eyebrow">MLM Deployment Demo</div>
-                    <a
-                        href="https://github.com/eyethejames/dat255-project"
-                        className="repo-link"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        GitHub repository
-                    </a>
+                    <div className="hero-links">
+                        <a href="/explain" className="repo-link">
+                            Plain-language guide
+                        </a>
+                        <a
+                            href="https://github.com/eyethejames/dat255-project"
+                            className="repo-link"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            GitHub repository
+                        </a>
+                    </div>
                 </div>
                 <h1>An Uncertainty-Aware Demand Forecasting Model for Inventory Restocking</h1>
                 <p className="hero-copy">

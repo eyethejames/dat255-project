@@ -609,7 +609,7 @@ export default function HomePage() {
         <main className="page-shell">
             <section className="hero-card">
                 <div className="hero-meta">
-                    <div className="eyebrow">MLM Deployment Demo</div>
+                    <div className="eyebrow">DAT255 project demo</div>
                     <div className="hero-links">
                         <a href="/explain" className="repo-link">
                             Plain-language guide
@@ -626,10 +626,10 @@ export default function HomePage() {
                 </div>
                 <h1>An Uncertainty-Aware Demand Forecasting Model for Inventory Restocking</h1>
                 <p className="hero-copy">
-                    This product demo shows how a deep learning forecasting model can be used
-                    as a decision-support tool for inventory planning. Select one product
-                    series, let the model forecast future demand, and compare how different
-                    restocking policies would perform against what actually happened.
+                    This interactive case study shows how a deep learning forecasting model
+                    can support inventory planning. Select one product series, run inference,
+                    inspect the forecast horizon, and compare how different restocking
+                    policies would have performed against the actual outcome.
                 </p>
 
                 <div className="intro-grid">

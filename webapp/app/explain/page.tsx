@@ -64,7 +64,7 @@ export default function ExplainPage() {
         <main className="page-shell plain-page">
             <section className="hero-card guide-hero">
                 <div className="hero-meta">
-                    <div className="eyebrow">Plain-language guide</div>
+                    <div className="eyebrow">Guide</div>
                     <div className="hero-links">
                         <a href="/" className="repo-link">
                             Back to demo

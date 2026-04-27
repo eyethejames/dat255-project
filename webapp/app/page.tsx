@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import type { InferResponse, PolicyResult, SeriesOption } from "@/lib/types";
 
@@ -448,7 +448,6 @@ function ForecastChart({ result }: { result: InferResponse }) {
 export default function HomePage() {
     const [series, setSeries] = useState<SeriesOption[]>([]);
     const [selectedSeriesId, setSelectedSeriesId] = useState("");
-    const [seriesQuery, setSeriesQuery] = useState("");
     const [result, setResult] = useState<InferResponse | null>(null);
     const [loadError, setLoadError] = useState<string | null>(null);
     const [isBootstrapping, setIsBootstrapping] = useState(true);
@@ -542,20 +541,6 @@ export default function HomePage() {
 
         return () => window.clearTimeout(timeoutId);
     }, [isLoading]);
-
-    const filteredSeries = useMemo(() => {
-        const normalizedQuery = seriesQuery.trim().toLowerCase();
-        if (!normalizedQuery) {
-            return series;
-        }
-
-        return series.filter((option) => {
-            return (
-                option.series_id.toLowerCase().includes(normalizedQuery) ||
-                option.label.toLowerCase().includes(normalizedQuery)
-            );
-        });
-    }, [series, seriesQuery]);
 
     useEffect(() => {
         if (!result || isLoadingResult || !shouldScrollToResultsRef.current) {
@@ -680,13 +665,6 @@ export default function HomePage() {
                 </div>
 
                 <div className="controls-row">
-                    <input
-                        value={seriesQuery}
-                        onChange={(event) => setSeriesQuery(event.target.value)}
-                        placeholder="Search by item or series id"
-                        className="series-select"
-                        disabled={isBootstrapping}
-                    />
                     <select
                         value={selectedSeriesId}
                         onChange={(event) => handleSeriesSelection(event.target.value)}
@@ -694,7 +672,7 @@ export default function HomePage() {
                         disabled={isBootstrapping}
                     >
                         <option value="">Select a series</option>
-                        {filteredSeries.map((option) => (
+                        {series.map((option) => (
                             <option key={option.series_id} value={option.series_id}>
                                 {option.label}
                             </option>
@@ -737,10 +715,6 @@ export default function HomePage() {
                             <div className="stat-row">
                                 <span>Available series</span>
                                 <strong>{series.length}</strong>
-                            </div>
-                            <div className="stat-row">
-                                <span>Visible in current search</span>
-                                <strong>{filteredSeries.length}</strong>
                             </div>
                             <div className="stat-row">
                                 <span>Selected series</span>

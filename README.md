@@ -92,6 +92,64 @@ Current demo cost assumptions:
 
 This means missed demand is penalized more heavily than leftover inventory.
 
+## Final Error Analysis and Model Interpretation
+
+In the final stage, the project includes an additional error analysis on the
+stricter 5A clean-holdout evaluation.
+
+The analysis compares:
+
+- Naive baseline
+- Point forecast TCN
+- Quantile TCN median forecast
+
+Final 5A clean-holdout MAE results:
+
+| Model | Mean MAE |
+|---|---:|
+| Naive baseline | 1.4135 |
+| Point TCN | 1.0788 |
+| Quantile TCN median | 1.0725 |
+
+The analysis includes:
+
+- Overall MAE comparison
+- MAE per forecast horizon day
+- Per-series error analysis
+- Error grouped by mean demand level
+- Occlusion sensitivity over the 28-day input window
+
+The occlusion sensitivity analysis is used as a simple model interpretation
+method. Since the final models are univariate and only use the previous 28 days
+of demand as input, each input timestep is perturbed one at a time and the
+resulting change in the forecast is measured. This indicates which parts of the
+input window the model is most sensitive to.
+
+Both learned models outperformed the naive baseline across all 216 evaluated
+series. The occlusion sensitivity analysis showed that the models were most
+sensitive to the most recent days in the 28-day input window.
+
+The generated outputs are stored in:
+
+```bash
+results/error_analysis_final/
+```
+
+The main script is:
+
+```bash
+src/error_analysis_final.py
+```
+
+To reproduce the analysis from the project root:
+
+```bash
+PYTHONPATH=src python -m src.error_analysis_final
+```
+
+Generated NumPy intermediate files from the occlusion analysis are ignored by
+Git.
+
 ## Repository Structure
 
 ```
@@ -105,6 +163,7 @@ project/
 │           └── quantile_tcn_5a.pt
 ├── src/
 │   ├── compare_policies_5a.py
+│   ├── error_analysis_final.py
 │   ├── export_webapp_series.py
 │   ├── preprocessing_5a.py
 │   ├── train.py
@@ -123,6 +182,14 @@ project/
 │   ├── lib/
 │   └── package.json
 └── results/
+    └── error_analysis_final/
+        ├── summary.txt
+        ├── per_horizon_day.csv
+        ├── per_series.csv
+        ├── fig_mae_per_horizon.png
+        ├── fig_mae_vs_demand.png
+        ├── fig_occlusion_point.png
+        └── fig_occlusion_quantile.png
 ```
 
 ## Local Development
@@ -220,6 +287,9 @@ Completed:
 - Point forecast TCN
 - Quantile TCN with pinball loss
 - Policy comparison on stricter 5A dataset
+- Final error analysis on the 5A clean-holdout test split
+- Per-horizon and per-series MAE analysis
+- Occlusion sensitivity analysis for model interpretation
 - Interactive webapp demo
 - Plain-language explanation view
 - Docker deployment setup

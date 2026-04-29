@@ -8,6 +8,11 @@ The core idea is simple: use recent product demand to forecast the next 7 days,
 then evaluate how different restocking policies would have performed against the
 actual future demand.
 
+## Authors
+
+- Jakob Kallevik
+- Hoang Vinh Nguyen
+
 ## Live Demo
 
 The webapp is built as a Next.js application with a Python/PyTorch inference
@@ -19,10 +24,10 @@ Live deployment:
 
 Main views:
 
-- `/` - interactive model demo
-- `/explain` - plain-language guide for non-specialists
-- `/api/series` - available product/store demand series
-- `/api/infer?series_id=FOODS_1_001_CA_1` - run inference for one series
+- / - interactive model demo
+- /explain - plain-language guide for non-specialists
+- /api/series - available product/store demand series
+- /api/infer?series_id=FOODS_1_001_CA_1 - run inference for one series
 
 ## What The Demo Shows
 
@@ -42,19 +47,18 @@ The project uses the M5 Forecasting Accuracy dataset.
 
 Current deployment subset:
 
-- Store: `CA_1`
-- Category: `FOODS`
-- Department: `FOODS_1`
+- Store: CA_1
+- Category: FOODS
+- Department: FOODS_1
 - Number of series: 216
 - Series length: 1913 daily demand values
 
-In this project, one `series` means one product in one store. For example:
+In this project, one series means one product in one store. For example:
 
-```text
+text
 FOODS_1_001_CA_1
-```
 
-means product `FOODS_1_001` in store `CA_1`.
+means product FOODS_1_001 in store CA_1.
 
 ## Model Pipeline
 
@@ -63,7 +67,7 @@ The final pipeline uses:
 - Input window: 28 days of observed demand
 - Forecast horizon: 7 days
 - Point forecast TCN
-- Quantile forecast TCN with quantiles `0.1`, `0.5` and `0.9`
+- Quantile forecast TCN with quantiles 0.1, 0.5 and 0.9
 - Inventory simulation with simplified costs
 
 The quantile model is uncertainty-aware. Instead of only predicting one future
@@ -82,14 +86,14 @@ Included policy metrics:
 
 Current demo cost assumptions:
 
-- Holding cost: `1`
-- Stockout cost: `5`
+- Holding cost: 1
+- Stockout cost: 5
 
 This means missed demand is penalized more heavily than leftover inventory.
 
 ## Repository Structure
 
-```text
+text
 project/
 ├── Dockerfile
 ├── requirements-deploy.txt
@@ -118,67 +122,52 @@ project/
 │   ├── lib/
 │   └── package.json
 └── results/
-```
 
 ## Local Development
 
 Install webapp dependencies:
 
-```bash
 npm install --prefix webapp
-```
 
 Run the development server:
 
-```bash
 npm run dev --prefix webapp
-```
 
-If port `3000` is busy:
+If port 3000 is busy:
 
-```bash
 npm run dev --prefix webapp -- -p 3001
-```
 
 Open:
 
-```text
+text
 http://localhost:3000
 http://localhost:3000/explain
 http://localhost:3000/api/series
-```
 
 ## Docker
 
 Build the deployment image:
 
-```bash
 docker build -t dat255-webapp .
-```
 
 Run locally:
 
-```bash
 docker run --rm -p 3000:3000 dat255-webapp
-```
 
 Test:
 
-```text
+text
 http://localhost:3000/
 http://localhost:3000/explain
 http://localhost:3000/api/series
 http://localhost:3000/api/infer?series_id=FOODS_1_001_CA_1
-```
 
-If port `3000` is already allocated, either stop the old container or map the
+If port 3000 is already allocated, either stop the old container or map the
 container to another local port:
 
-```bash
 docker run --rm -p 3001:3000 dat255-webapp
-```
 
-Then open `http://localhost:3001`.
+Then open http://localhost:3001.
 
 ## Deployment
 
@@ -187,14 +176,14 @@ Next.js API route calls Python/PyTorch inference.
 
 Important deployment files:
 
-- `Dockerfile`
-- `.dockerignore`
-- `requirements-deploy.txt`
-- `src/webapp_inference_runtime.py`
-- `data/processed/webapp_models/*.pt`
+- Dockerfile
+- .dockerignore
+- requirements-deploy.txt
+- src/webapp_inference_runtime.py
+- data/processed/webapp_models/*.pt
 
 The model checkpoint files are intentionally included in deployment even though
-the rest of `data/processed` is ignored.
+the rest of data/processed is ignored.
 
 ## Render Notes
 
@@ -205,14 +194,7 @@ If Render deploys but the UI does not show the newest changes, check:
 3. Auto deploy is enabled, or a manual deploy was triggered after the push.
 4. The browser is not showing a cached page.
 
-In this repository, the latest deployment work is on:
-
-```text
-milestone-5B
-```
-
-If Render is tracking `main`, it will deploy an older version unless `main` is
-updated or the Render service branch is changed.
+The intended deployment branch is main.
 
 ## Project Status
 

@@ -1,0 +1,88 @@
+Error analysis (5A test split)
+============================================================
+Series evaluated:                 216
+Total windows:                    54648
+
+Mean MAE across all windows:
+  Naive baseline                  1.4135
+  Point TCN                       1.0788
+  Quantile TCN (median)           1.0725
+
+Win rate vs naive baseline (per series):
+  Point TCN beats baseline on     216/216  (100.0%)
+  Quantile median beats baseline  216/216  (100.0%)
+
+MAE per forecast horizon day:
+ horizon_day  mae_naive  mae_point  mae_qmedian
+           1     1.4130     1.0443       1.0412
+           2     1.4134     1.0669       1.0636
+           3     1.4135     1.0797       1.0740
+           4     1.4129     1.0871       1.0773
+           5     1.4134     1.0890       1.0791
+           6     1.4145     1.0881       1.0850
+           7     1.4134     1.0965       1.0870
+
+MAE by mean-demand bucket (tertiles):
+               mae_naive  mae_point  mae_qmedian
+demand_bucket                                   
+low               0.5446     0.4000       0.3987
+mid               1.1246     0.8684       0.8623
+high              2.5712     1.9680       1.9564
+
+Worst 10 series for point TCN:
+                  series_id  mae_naive  mae_point  mae_qmedian  mean_demand
+FOODS_1_099_CA_1_validation     5.9136     5.0992       5.0793      10.2079
+FOODS_1_218_CA_1_validation     5.8210     4.2450       4.2301       9.2335
+FOODS_1_085_CA_1_validation     5.4410     4.1365       4.1463       9.9785
+FOODS_1_161_CA_1_validation     5.2304     4.1347       4.1548       9.0088
+FOODS_1_173_CA_1_validation     5.2462     3.7809       3.7066       5.1694
+FOODS_1_018_CA_1_validation     4.7770     3.7106       3.7087       7.7789
+FOODS_1_200_CA_1_validation     4.4150     3.5954       3.6412       6.9015
+FOODS_1_046_CA_1_validation     4.2196     3.4165       3.4119       6.9348
+FOODS_1_082_CA_1_validation     4.5771     3.3117       3.3388       6.8778
+FOODS_1_154_CA_1_validation     4.2134     3.2050       3.1949       4.1733
+
+Best 10 series for point TCN:
+                  series_id  mae_naive  mae_point  mae_qmedian  mean_demand
+FOODS_1_022_CA_1_validation     0.0649     0.0374       0.0416       0.0507
+FOODS_1_164_CA_1_validation     0.0587     0.0379       0.0374       0.0519
+FOODS_1_079_CA_1_validation     0.0791     0.0409       0.0457       0.0438
+FOODS_1_072_CA_1_validation     0.0745     0.0534       0.0538       0.0435
+FOODS_1_084_CA_1_validation     0.1457     0.0744       0.0765       0.0870
+FOODS_1_053_CA_1_validation     0.1220     0.0814       0.0825       0.0593
+FOODS_1_102_CA_1_validation     0.1270     0.1011       0.1037       0.0590
+FOODS_1_148_CA_1_validation     0.2101     0.1220       0.1280       0.1119
+FOODS_1_107_CA_1_validation     0.2055     0.1343       0.1324       0.1379
+FOODS_1_095_CA_1_validation     0.2823     0.1545       0.1632       0.1361
+
+Occlusion sensitivity
+============================================================
+Each value is the mean absolute change in the forecast when a
+single day in the 28-day input window is replaced with the
+window's mean. Day 0 = most recent observed day.
+
+Point TCN - top 5 most influential input days:
+  Rank 1: day - 0   sensitivity = 0.1446
+  Rank 2: day - 1   sensitivity = 0.1121
+  Rank 3: day - 2   sensitivity = 0.0904
+  Rank 4: day - 3   sensitivity = 0.0737
+  Rank 5: day - 4   sensitivity = 0.0720
+
+Quantile TCN - top 3 most influential input days per quantile:
+  q = 0.1
+    Rank 1: day - 0   sensitivity = 0.0230
+    Rank 2: day - 1   sensitivity = 0.0198
+    Rank 3: day - 2   sensitivity = 0.0192
+  q = 0.5
+    Rank 1: day - 0   sensitivity = 0.1303
+    Rank 2: day - 1   sensitivity = 0.0994
+    Rank 3: day - 2   sensitivity = 0.0926
+  q = 0.9
+    Rank 1: day - 0   sensitivity = 0.2588
+    Rank 2: day - 1   sensitivity = 0.1884
+    Rank 3: day - 2   sensitivity = 0.1834
+
+Share of total sensitivity from the most recent 7 days (point TCN): 54.2%
+Share of total sensitivity from the most recent 7 days (q=0.1): 45.9%
+Share of total sensitivity from the most recent 7 days (q=0.5): 48.5%
+Share of total sensitivity from the most recent 7 days (q=0.9): 47.7%

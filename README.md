@@ -182,14 +182,6 @@ project/
 │   ├── lib/
 │   └── package.json
 └── results/
-    └── error_analysis_final/
-        ├── summary.txt
-        ├── per_horizon_day.csv
-        ├── per_series.csv
-        ├── fig_mae_per_horizon.png
-        ├── fig_mae_vs_demand.png
-        ├── fig_occlusion_point.png
-        └── fig_occlusion_quantile.png
 ```
 
 ## Local Development

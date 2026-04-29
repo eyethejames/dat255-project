@@ -24,10 +24,10 @@ Live deployment:
 
 Main views:
 
-- / - interactive model demo
-- /explain - plain-language guide for non-specialists
-- /api/series - available product/store demand series
-- /api/infer?series_id=FOODS_1_001_CA_1 - run inference for one series
+- `/` — interactive model demo
+- `/explain` — plain-language guide for non-specialists
+- `/api/series` — available product/store demand series
+- `/api/infer?series_id=FOODS_1_001_CA_1` — run inference for one series
 
 ## What The Demo Shows
 
@@ -47,18 +47,19 @@ The project uses the M5 Forecasting Accuracy dataset.
 
 Current deployment subset:
 
-- Store: CA_1
-- Category: FOODS
-- Department: FOODS_1
+- Store: `CA_1`
+- Category: `FOODS`
+- Department: `FOODS_1`
 - Number of series: 216
 - Series length: 1913 daily demand values
 
 In this project, one series means one product in one store. For example:
 
-text
+```
 FOODS_1_001_CA_1
+```
 
-means product FOODS_1_001 in store CA_1.
+means product `FOODS_1_001` in store `CA_1`.
 
 ## Model Pipeline
 
@@ -80,9 +81,9 @@ they are for inventory decisions.
 
 Included policy metrics:
 
-- Total cost: simulated holding penalty plus stockout penalty
-- Stockout rate: share of days where inventory was too low
-- Fill rate: share of demand that was fulfilled
+- **Total cost** — simulated holding penalty plus stockout penalty
+- **Stockout rate** — share of days where inventory was too low
+- **Fill rate** — share of demand that was fulfilled
 
 Current demo cost assumptions:
 
@@ -93,7 +94,7 @@ This means missed demand is penalized more heavily than leftover inventory.
 
 ## Repository Structure
 
-text
+```
 project/
 ├── Dockerfile
 ├── requirements-deploy.txt
@@ -122,50 +123,65 @@ project/
 │   ├── lib/
 │   └── package.json
 └── results/
+```
 
 ## Local Development
 
 Install webapp dependencies:
 
+```bash
 npm install --prefix webapp
+```
 
 Run the development server:
 
+```bash
 npm run dev --prefix webapp
+```
 
 If port 3000 is busy:
 
+```bash
 npm run dev --prefix webapp -- -p 3001
+```
 
 Open:
 
-text
+```
 http://localhost:3000
 http://localhost:3000/explain
 http://localhost:3000/api/series
+```
 
 ## Docker
 
 Build the deployment image:
 
+```bash
 docker build -t dat255-webapp .
+```
 
 Run locally:
 
+```bash
 docker run --rm -p 3000:3000 dat255-webapp
+```
 
 Test:
 
-text
+```
 http://localhost:3000/
 http://localhost:3000/explain
 http://localhost:3000/api/series
 http://localhost:3000/api/infer?series_id=FOODS_1_001_CA_1
+```
 
 If port 3000 is already allocated, either stop the old container or map the
 container to another local port:
 
+```bash
 docker run --rm -p 3001:3000 dat255-webapp
+```
 
 Then open http://localhost:3001.
 
@@ -176,14 +192,14 @@ Next.js API route calls Python/PyTorch inference.
 
 Important deployment files:
 
-- Dockerfile
-- .dockerignore
-- requirements-deploy.txt
-- src/webapp_inference_runtime.py
-- data/processed/webapp_models/*.pt
+- `Dockerfile`
+- `.dockerignore`
+- `requirements-deploy.txt`
+- `src/webapp_inference_runtime.py`
+- `data/processed/webapp_models/*.pt`
 
 The model checkpoint files are intentionally included in deployment even though
-the rest of data/processed is ignored.
+the rest of `data/processed` is ignored.
 
 ## Render Notes
 
@@ -194,7 +210,7 @@ If Render deploys but the UI does not show the newest changes, check:
 3. Auto deploy is enabled, or a manual deploy was triggered after the push.
 4. The browser is not showing a cached page.
 
-The intended deployment branch is main.
+The intended deployment branch is `main`.
 
 ## Project Status
 
